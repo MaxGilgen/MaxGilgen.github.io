@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<!--CSS und Scripts einbinden-->
+		<link rel="stylesheet" type="text/css" href="./css/hamburger.css">
 	    <link rel="stylesheet" type="text/css" href="./css/style.css">
 	    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
 	    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -13,8 +14,15 @@
 	</head>
 	<body>
 		<header>
+				<div class="mobile-menu-bar">
+	        <button class="hamburger--spin hamburger" id="hamburger" type="button">
+	         <span class="hamburger-box">
+	          <span class="hamburger-inner"></span>
+	         </span>
+	        </button>
+	      </div>
 	      <nav>
-	        <ul>
+	        <ul id="mobile-menu">
 	          <li><a href="index.html">Home</a></li>
 	          <li><a href="index.html#skills">Skills</a></li>
 	          <li><a href="index.html#jobs">Lebenslauf</a></li>
@@ -25,7 +33,7 @@
     	</header>
     	<main>
     		<div id="wrapper" class="detailseite">
-    			<h1>Arbeit 1</h1>
+    			<h2>Arbeit 2</h2>
     			<p>
     				Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. 
 
@@ -44,5 +52,37 @@
 	      <!--Fussbereich für Sitemaps, Mailadressen, Scoiallinks etc. -->
 	      © Max Gilgen 2017 &nbsp;|&nbsp; <a href="mailto:info@maxgilgen.ch">info@maxgilgen.ch</a>
     	</footer>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(".scroll").click(function(event){
+        event.preventDefault();
+        //calculate destination place
+        var dest=0;
+        if($(this.hash).offset().top > $(document).height()-$(window).height()){
+        dest=$(document).height()-$(window).height();
+        }else{
+        dest=$(this.hash).offset().top;
+        }
+        //go to destination
+        $('html,body').animate({scrollTop:dest}, 700,'swing');
+      });
+
+      $(window).scroll(function () {
+        var scrollTop = $(window).scrollTop();
+        var scrollToSkills = $('#skills').offset().top;       
+        var skillsHeight = $('#skills').height();
+        if (scrollTop >= scrollToSkills - skillsHeight) {
+        $('.circle').addClass('active');
+        $(this).off();
+        }
+      });
+
+      $(function(){
+        $(document).on('click', '#hamburger', function (event) {
+        $('#mobile-menu').toggleClass('active');
+        $('#hamburger').toggleClass('is-active');
+        // $('html').toggleClass('noscroll');
+        });
+      });
 	</body>
 </html>

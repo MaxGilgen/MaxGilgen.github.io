@@ -1,15 +1,18 @@
+* {
+  box-sizing: border-box;
+} 
+
 /* Header */
 
 nav ul {
 	text-align: center;
 	background-color: #343434;
-	margin: 10;
+	margin: 0;
 	position: fixed;
 	z-index: 3;
-	left: 50%;
-	top: 18px;
-	transform: translate(-50%, -50%);
-	width: 100%;
+	top: 0;
+	width: 100vw;
+	padding: 0;
 }
 
 nav li {
@@ -25,8 +28,8 @@ nav a {
 	font-weight: 600;
 	color: #FFFFFF
 	-moz-transition:color .3s ease-in;
-    -o-transition:color .3s ease-in;
-    -webkit-transition:color .3s ease-in;
+  -o-transition:color .3s ease-in;
+  -webkit-transition:color .3s ease-in;
 }
 
 nav a:hover {
@@ -36,6 +39,14 @@ nav a:hover {
 
 body {
 	font-family: 'Open Sans', sans-serif;
+}
+
+#hamburger {
+	display: none;
+}
+
+:focus {
+  outline: 0;
 }
 
 #about {
@@ -88,6 +99,7 @@ a {
 
 #beschreibung h1 {
 	color: #343434;
+	font-size: 33px;
 	line-height: 100%;
 	text-transform: uppercase;
 }
@@ -111,9 +123,11 @@ main {
 
 /* Skills */
 
-#wrapper h1 {
+#wrapper h2 {
 	text-align: center;
-	line-height: 4em;
+	font-size: 28px;
+	line-height: 1.2em;
+	margin: 1em;
 }
 
 .skills-icons {
@@ -166,7 +180,7 @@ main {
 }
 
 .circle.active {
-  animation: progress 1s ease-out forwards;	
+  animation: progress 2s ease-out forwards;	
   visibility: visible;
 }
 
@@ -237,6 +251,7 @@ main {
 
 #portfolio {
 	float: left;
+	margin-bottom: 40px
 }
 
 .portfolio-kacheln {
@@ -339,7 +354,7 @@ footer {
 
 /* Responsive */
 
-@media only screen and (max-width: 860px){
+@media only screen and (max-width: 790px){
 
 	#about {
 		display: flex;
@@ -347,11 +362,12 @@ footer {
 	}
 
 	#beschreibung {
-		width: 100%;
 		margin-top: 0px;
+		width: 100%;
 	}
 
 	#portrait {
+		margin-top: 65px;
 		width: 100%;
 		padding-bottom: 56.25%;
 	}
@@ -375,13 +391,51 @@ footer {
 }
 
 @media only screen and (max-width: 480px){
+	body {
+		margin-top: 59px;
+	}
+
 	nav li {
 		display: block;
 		line-height: 0.1em;
 	}
 
 	ul {
-		padding: 0;
+    transform: translate(0%, 0%);
+    margin: 0;
+    padding: 0;
+    transform: translate(0%, -285px);
+    transition: 1s;
+	}
+
+	ul.active {
+		transform: translate(0%, 58px);
+	}
+
+	.mobile-menu-bar {
+		position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    background-color: #343434;
+    z-index: 200;
+	}
+
+	.hamburger-inner, .hamburger-inner:before, .hamburger-inner:after {
+		background-color: #FFFFFF;
+	}
+
+	#hamburger {
+		display: inline;
+		float: right;
+	}
+
+	#portrait {
+		margin-top: 0px;
+	}
+
+	a.scroll {
+		width: 100%;
 	}
 
 	main {

@@ -2,8 +2,9 @@
 <html>
   <head>
     <!--CSS und Scripts einbinden-->
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/hamburger.css">
     <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!--Meta Angaben-->
     <meta name="language" content="de">
@@ -17,9 +18,16 @@
   <body>
     <header>
       <!--Kopfbereich für Navigation, Bannerbilder etc. -->
+      <div class="mobile-menu-bar">
+        <button class="hamburger--spin hamburger" id="hamburger" type="button">
+         <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+         </span>
+        </button>
+      </div>
       <nav>
-        <ul>
-          <li><a class="scroll" href="#">Home</a></li>
+        <ul id="mobile-menu">
+          <li><a class="scroll" href="#about">Home</a></li>
           <li><a class="scroll" href="#skills">Skills</a></li>
           <li><a class="scroll" href="#jobs">Lebenslauf</a></li>
           <li><a class="scroll" href="#portfolio">Portfolio</a></li>
@@ -65,7 +73,7 @@
       </section>
       <div id="wrapper">
           <section id="skills">
-            <h1>Meine Fähigkeiten</h1>
+            <h2>Meine Fähigkeiten</h2>
             <div class="skills-icons">
               <div class="single-chart">
                 <div class="text-kreis">Photoshop</div>
@@ -93,12 +101,12 @@
                       a 15.9155 15.9155 0 0 1 0 -31.831"
                   />
                   <path class="circle"
-                    stroke-dasharray="40, 100"
+                    stroke-dasharray="20, 100"
                     d="M18 2.0845
                       a 15.9155 15.9155 0 0 1 0 31.831
                       a 15.9155 15.9155 0 0 1 0 -31.831"
                   />
-                  <text x="18" y="20.35" class="percentage">40%</text>
+                  <text x="18" y="20.35" class="percentage">20%</text>
                 </svg>
               </div>
               <div class="single-chart">
@@ -122,7 +130,7 @@
           </section>
       <section id="cv">
         <section id="jobs">
-          <h1>Jobs</h1>
+          <h2>Jobs</h2>
           <!-- 1. Jobeintrag -->
           <div class="cv-eintrag">
             <div class="links">
@@ -132,7 +140,7 @@
             <div class="rechts">
               <p class="cv-beschreibung">
                 <span class="cv-titel">
-                  Interactive Media Designer bei SFGB-B
+                  Interactive Media Designer bei <br>SFGB-B
                 </span>
                 <br>
                   Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget risus varius blandit sit amet non magna.
@@ -148,7 +156,7 @@
             <div class="rechts">
               <p class="cv-beschreibung">
                 <span class="cv-titel">
-                  Gestalterischer Vorkurs SFGB-B
+                  Gestalterischer Vorkurs <br>SFGB-B
                 </span>
                 <br>
                   Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
@@ -157,7 +165,7 @@
           </div>
         </section>
         <section id="ausbildungen">
-          <h1>Ausbildung</h1>
+          <h2>Ausbildung</h2>
           <!-- 1. Ausbildungseintrag -->
           <div class="cv-eintrag">
             <div class="links">
@@ -167,7 +175,7 @@
             <div class="rechts">
               <p class="cv-beschreibung">
                 <span class="cv-titel">
-                  Gestalterischer Vorkurs SFGB-B
+                  Gestalterischer Vorkurs <br>SFGB-B
                 </span>
                 <br>
                   Donec ullamcorper nulla non metus auctor fringilla. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
@@ -194,7 +202,7 @@
       </section>
       <!-- Sektion Portfolio -->
       <section id="portfolio">
-        <h1>Portfolio</h1>
+        <h2>Portfolio</h2>
         <div class="portfolio-kacheln">
       <!-- 1. Portfolio Eintrag -->
           <div class="portfolio-eintrag">
@@ -222,8 +230,8 @@
           </div>
         </div>
       </section>
-        <h1>Kontakt</h1>
       <section id="formular">
+        <h2>Kontakt</h2>
         <div class="kontaktformular">
           <form action="https://formspree.io/info@maxgilgen.ch" class="form-horizontal" role="form" method="post">
             <input type="text" class="form-control" id="form-name" name="form-name" placeholder="Name" required>
@@ -263,6 +271,14 @@
         $('.circle').addClass('active');
         $(this).off();
         }
+      });
+
+      $(function(){
+        $(document).on('click', '#hamburger', function (event) {
+        $('#mobile-menu').toggleClass('active');
+        $('#hamburger').toggleClass('is-active');
+        // $('html').toggleClass('noscroll');
+        });
       });
     </script>
   </body>
