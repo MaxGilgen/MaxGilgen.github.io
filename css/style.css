@@ -29,6 +29,7 @@ nav a {
 	color: #FFFFFF
 	-moz-transition:color .3s ease-in;
   	-o-transition:color .3s ease-in;
+  	
   	-webkit-transition:color .3s ease-in;
 }
 
@@ -428,6 +429,10 @@ footer {
 	#hamburger {
 		display: inline;
 		float: right;
+	}
+
+	.mobile-menu {
+		z-index: 201;
 	}
 
 	#portrait {
