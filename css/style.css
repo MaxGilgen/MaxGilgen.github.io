@@ -399,6 +399,7 @@ footer {
 	nav li {
 		display: block;
 		line-height: 0.1em;
+		z-index: 201;
 	}
 
 	ul {
@@ -429,10 +430,6 @@ footer {
 	#hamburger {
 		display: inline;
 		float: right;
-	}
-
-	.mobile-menu {
-		z-index: 201;
 	}
 
 	#portrait {
