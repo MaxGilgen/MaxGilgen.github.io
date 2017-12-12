@@ -28,8 +28,8 @@ nav a {
 	font-weight: 600;
 	color: #FFFFFF
 	-moz-transition:color .3s ease-in;
-  -o-transition:color .3s ease-in;
-  -webkit-transition:color .3s ease-in;
+  	-o-transition:color .3s ease-in;
+  	-webkit-transition:color .3s ease-in;
 }
 
 nav a:hover {
